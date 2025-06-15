@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>藥物劑量計算器</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 5px 15px;
+            font-size: 16px;
+        }
+        h1 {
+            color: #007BFF;
+        }
+        table {
+            margin-top: 15px;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>藥物劑量計算器</h1>
+
+    {% if error %}
+        <p style="color:red;">⚠️ {{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label>姓名：
+            <input type="text" name="name" required>
+        </label>
+        <label>年齡（歲）：
+            <input type="number" name="age" step="0.1" required>
+        </label>
+        <label>體重（kg）：
+            <input type="number" name="weight" step="0.1" required>
+        </label>
+        <label>選擇藥物：
+            <select name="med_name" required>
+                {% for med in medications %}
+                    <option value="{{ med }}">{{ med }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <button type="submit">計算劑量</button>
+    </form>
+
+    {% if dose %}
+        <h2>💊 計算結果</h2>
+        <table border="1">
+            <tr><td><strong>姓名</strong></td><td>{{ name }}</td></tr>
+            <tr><td><strong>年齡</strong></td><td>{{ age }} 歲</td></tr>
+            <tr><td><strong>體重</strong></td><td>{{ weight }} kg</td></tr>
+            <tr><td><strong>藥物名稱</strong></td><td>{{ med_name }}</td></tr>
+            <tr><td><strong>建議劑量</strong></td><td><strong>{{ dose }}</strong> mg</td></tr>
+            <tr><td><strong>劑量說明</strong></td><td>{{ dose_instruction }}</td></tr>
+            <tr><td><strong>適應症</strong></td><td>{{ symptoms }}</td></tr>
+            <tr><td><strong>常見副作用</strong></td><td>{{ side_effects }}</td></tr>
+        </table>
+    {% endif %}
+</body>
+</html>
+

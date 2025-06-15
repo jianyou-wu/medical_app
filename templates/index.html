@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>智慧醫療助手</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f2f7ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3478f6;
+            color: white;
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #3478f6;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🩺 智慧醫療助手</h1>
+</header>
+
+<div class="container">
+     <div class="card">
+        <a href="/search">📄 病歷查詢</a>
+        <p>輸入姓名或身分證，查詢個人病歷紀錄</p>
+    </div>
+
+    <div class="card">
+        <a href="/health_log">📋 健康紀錄</a>
+        <p>每日輸入血壓、心率與體溫，自動提醒異常狀況</p>
+    </div>
+
+    <div class="card">
+        <a href="/drug_calc">💊 藥物劑量計算</a>
+        <p>根據體重與年齡計算適合的藥物劑量</p>
+    </div>
+
+    <div class="card">
+        <a href="/chat">🧠 線上醫療諮詢</a>
+        <p>輸入症狀，AI 預測可能疾病與建議處置</p>
+    </div>
+
+    <div class="card">
+        <a href="/clinic_suggest">🏥 推薦附近診所</a>
+        <p>根據症狀推薦對應科別的附近診所</p>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 智慧醫療助手
+</footer>
+
+</body>
+</html>

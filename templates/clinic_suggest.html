@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>推薦診所</title>
+</head>
+<body>
+    <h1>🏥 推薦附近診所</h1>
+    <form method="post">
+        <label>地區（如：臺北市松山區）：</label>
+        <input type="text" name="area" required>
+        <br>
+        <label>症狀描述（如：喉嚨痛）：</label>
+        <input type="text" name="symptom" required>
+        <br><br>
+        <input type="submit" value="搜尋診所">
+    </form>
+
+    {% if error_msg %}
+        <p style="color: red;">{{ error_msg }}</p>
+    {% endif %}
+
+    {% if clinics %}
+        <h2>🔍 找到以下診所：</h2>
+        <ul>
+        {% for clinic in clinics %}
+            <li>
+                <strong>{{ clinic.機構名稱 }}</strong><br>
+                電話：{{ clinic.電話 }}<br>
+                地址：{{ clinic.地址 }}<br>
+                科別：{{ clinic.科別 }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
+

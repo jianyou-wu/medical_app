@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>線上醫療諮詢</title>
+    <style>
+        body {
+            font-family: "Noto Sans TC", sans-serif;
+            background-color: #f5f5f5;
+            padding: 2em;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 2em;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+            font-size: 1em;
+        }
+        button {
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            font-size: 1em;
+        }
+        .response {
+            background-color: #fff;
+            border-left: 5px solid #4CAF50;
+            padding: 1em;
+            white-space: pre-line;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>🩺 線上醫療諮詢（耳鼻喉專區）</h1>
+    <form method="POST">
+        <label for="symptom">請輸入您的症狀（可用「、」分隔多個症狀）：</label><br>
+        <textarea name="symptom" placeholder="例如：喉嚨痛、流鼻水、耳痛">{{ request.form.get('symptom', '') }}</textarea><br>
+        <button type="submit">送出諮詢</button>
+    </form>
+
+    {% if response %}
+        <div class="response">
+            {{ response }}
+        </div>
+    {% endif %}
+</body>
+</html>

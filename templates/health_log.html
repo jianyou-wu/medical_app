@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>健康追蹤日誌</title>
+</head>
+<body>
+  <h1>🩺 健康追蹤日誌</h1>
+
+  <!-- 健康提醒區塊 -->
+  {% if alerts %}
+    <div style="color: red; font-weight: bold;">
+      <p>⚠️ 健康提醒：</p>
+      <ul>
+        {% for msg in alerts %}
+          <li>{{ msg }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <!-- 健康紀錄表單 -->
+  <form method="POST" action="/health_log">
+    <label>姓名：</label>
+    <input type="text" name="name" required><br><br>
+
+    <label>血壓（mmHg）：</label>
+    <input type="text" name="bp" required><br><br>
+
+    <label>心率（bpm）：</label>
+    <input type="text" name="hr" required><br><br>
+
+    <label>體溫（°C）：</label>
+    <input type="text" name="temp" required><br><br>
+
+    <button type="submit">提交</button>
+  </form>
+
+  <br>
+  <a href="/">🏠 返回病歷查詢首頁</a>
+</body>
+</html>
